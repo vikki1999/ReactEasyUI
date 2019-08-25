@@ -1,8 +1,9 @@
 import React from 'react';
 import { DataGrid, GridColumn, CheckBox,Pagination } from 'rc-easyui';
-import request from '../request';
+// import request from '../request';
+import {queryRows, queryRow } from '../mysql'; //调用mysql函数
  
-class ChekcGrids extends React.Component {
+class CheckGrids extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,17 +16,21 @@ class ChekcGrids extends React.Component {
     }
   }
   
+  // //express等后端接口请求数据
   getData() {
-    return fetch('http://localhost:3001/users', {
-      headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-      },
-      method:'get',
-    }).then(response => { 
-      response.json().then(data => {this.setState({data:data,total:data.length}) }).catch(error => console.log(error))
-    });
-    
+  //   return fetch('http://localhost:3001/users', {
+  //     headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //     },
+  //     method:'get',
+  //   }).then(response => { 
+  //     response.json().then(data => {this.setState({data:data,total:data.length}) }).catch(error => console.log(error))
+  //   });
+  const data = queryRow('select * from sys_users');
+  console.log('data===>', data);
+  
+     
     // return [
     //   { "code": "FI-SW-01", "name": "Koi", "unitcost": 10.00, "status": "P", "listprice": 36.50, "attr": "Large", "itemid": "EST-1" },
     //   { "code": "K9-DL-01", "name": "Dalmation", "unitcost": 12.00, "status": "P", "listprice": 18.50, "attr": "Spotted Adult Female", "itemid": "EST-10" },
@@ -108,4 +113,4 @@ class ChekcGrids extends React.Component {
   }
 }
  
-export default ChekcGrids;
+export default CheckGrids;

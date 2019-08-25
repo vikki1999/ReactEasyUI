@@ -13,8 +13,8 @@ var pool = mysql.createPool({
 	connectionLimit: 10,
 	host: 'localhost',
 	user: 'root',
-	password: 'mysql2017',
-	database: 'tracesystem',
+	password: 'mysql2019',
+	database: 'ReactEasyUI',
 });
 
 // home

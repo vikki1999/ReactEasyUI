@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {Route,Switch,Redirect} from 'react-router-dom';
 
 //引入路由模块
-import CheskGrids from '../components/CheckGrids';
+import CheckGrids from '../components/CheckGrids';
 import ComboTrees from '../components/ComboTrees';
 import DataGrids from '../components/DataGrids';
 import EditGrids from '../components/EditGrids';
@@ -34,8 +34,8 @@ class Root extends Component{
             <div>
                 <App>
                     <Switch>
-                        <Route exact path="/" component={CheskGrids}></Route>
-                        <Route path="/checkgrid" component={CheskGrids}></Route>
+                        <Route exact path="/" component={CheckGrids}></Route>
+                        <Route path="/checkgrid" component={CheckGrids}></Route>
                         <Route path="/combotree" component={ComboTrees}></Route>
                         <Route path="/datagrid" component={DataGrids}></Route>
                         <Route path="/editgrid" component={EditGrids}></Route>
